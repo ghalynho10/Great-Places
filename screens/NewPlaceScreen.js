@@ -9,6 +9,12 @@ const NewPlaceScreen = (props) => {
   );
 };
 
+NewPlaceScreen.navigationOptions = (navData) => {
+  return {
+    headerTitle: "Add Place",
+  };
+};
+
 export default NewPlaceScreen;
 
 const styles = StyleSheet.create({});
