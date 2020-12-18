@@ -14,11 +14,12 @@ import * as placesActions from "../store/actions/places";
 const NewPlaceScreen = (props) => {
   const [titleValue, setTitleValue] = useState("");
 
+  const dispatch = useDispatch();
+
   const titleChangeHandler = (text) => {
+    // you could add validation
     setTitleValue(text);
   };
-
-  const dispatch = useDispatch();
 
   const savePlaceHandler = () => {
     dispatch(placesActions.addPlace(titleValue));
@@ -31,7 +32,7 @@ const NewPlaceScreen = (props) => {
         <Text style={styles.label}>Title</Text>
         <TextInput
           style={styles.textInput}
-          onChange={titleChangeHandler}
+          onChangeText={titleChangeHandler}
           value={titleValue}
         />
         <Button
@@ -44,13 +45,9 @@ const NewPlaceScreen = (props) => {
   );
 };
 
-NewPlaceScreen.navigationOptions = (navData) => {
-  return {
-    headerTitle: "Add Place",
-  };
+NewPlaceScreen.navigationOptions = {
+  headerTitle: "Add Place",
 };
-
-export default NewPlaceScreen;
 
 const styles = StyleSheet.create({
   form: {
@@ -68,3 +65,5 @@ const styles = StyleSheet.create({
     paddingHorizontal: 2,
   },
 });
+
+export default NewPlaceScreen;
