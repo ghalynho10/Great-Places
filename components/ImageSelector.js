@@ -35,6 +35,7 @@ const ImageSelector = (props) => {
     });
 
     setPickedImage(image.uri);
+    props.onImageTaken(image.uri);
   };
   return (
     <View style={styles.imagePicker}>
@@ -59,6 +60,7 @@ export default ImageSelector;
 const styles = StyleSheet.create({
   imagePicker: {
     alignItems: "center",
+    marginBottom: 15,
   },
   imagePreview: {
     width: "100%",
